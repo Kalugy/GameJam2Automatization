@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class PlayerSequenceBuilder : MonoBehaviour
 {
     public enum Direction { Front, Back, Left, Right }
+    private bool hasCollided = false;
 
     [Header("Movement Settings")]
     public float moveDistance = 1f;
@@ -68,6 +69,14 @@ public class PlayerSequenceBuilder : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            hasCollided = true;
+        }
+    }
+
     public void UndoLastStep()
     {
         if (customSequence.Count > 0)
@@ -109,12 +118,23 @@ public class PlayerSequenceBuilder : MonoBehaviour
     IEnumerator PlayAndCheck()
     {
         messageDisplay.text = "🔄 Playing sequence...";
+        hasCollided = false;
+
         yield return new WaitForSeconds(0.5f);
 
         foreach (Direction step in customSequence)
         {
             yield return MoveInDirection(step);
             yield return new WaitForSeconds(delayBetweenSteps);
+
+            if (hasCollided)
+            {
+                messageDisplay.text = "💥 Hit an enemy! ❌ Try Again!";
+                yield return new WaitForSeconds(1f);
+                transform.position = initialPosition;
+                ClearSequence();
+                yield break;
+            }
         }
 
         yield return new WaitForSeconds(0.5f);
