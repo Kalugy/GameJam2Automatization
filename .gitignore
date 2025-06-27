@@ -1,0 +1,62 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+
+# User-specific files
+UserSettings/
+MemoryCaptures/
+
+# Asset meta data should only be ignored when the corresponding asset is also ignored
+*.pidb
+*.suo
+*.user
+*.userprefs
+*.csproj
+*.unityproj
+*.sln
+
+# VS Code settings
+.vscode/
+
+# Rider
+.idea/
+*.sln.iml
+
+# Auto-generated JetBrains Rider project files
+*.csproj
+*.unityproj
+*.sln
+*.sln.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Unity crash reports
+sysinfo.txt
+
+# Optional: ignore Addressable asset cache
+Assets/AddressableAssetsData/*/AssetBundles/
+
+# Optional: ignore Plastic SCM (if not using it)
+.plastic/
+
+# Ignore Build artifacts
+*.apk
+*.aab
+*.ipa
+*.exe
+
+# Ignore compiled DLLs (optional)
+*.dll
+*.pdb
+
+# Ignore Unity Collaborate
+.collabignore
+
+# Ignore generated Visual Studio cache
+.vs/
