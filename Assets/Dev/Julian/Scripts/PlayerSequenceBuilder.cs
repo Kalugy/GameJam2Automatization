@@ -61,7 +61,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
     void UpdateSequenceDisplay()
     {
-        sequenceDisplay.text = "Your Sequence:\n";
+        sequenceDisplay.text = "Your Sequence: \n";
         for (int i = 0; i < customSequence.Count; i++)
         {
             sequenceDisplay.text += $"{i + 1}. {customSequence[i]}\n";
@@ -89,13 +89,13 @@ public class PlayerSequenceBuilder : MonoBehaviour
     {
         if(maxSteps != customSequence.Count)
         {
-            messageDisplay.text = maxSteps.ToString() + "⚠️ Complete all steps firts";
+            messageDisplay.text = maxSteps.ToString() + " steps required";
             return;
         }
 
         if (customSequence.Count == 0)
         {
-            messageDisplay.text = "⚠️ Add steps first!";
+            messageDisplay.text = "Add steps first!";
             return;
         }
 
