@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class PlayerSequenceBuilder : MonoBehaviour
 {
     public enum Direction { Front, Back, Left, Right }
+    private bool hasCollided = false;
 
     [Header("Movement Settings")]
     public float moveDistance = 1f;
@@ -61,10 +62,18 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
     void UpdateSequenceDisplay()
     {
-        sequenceDisplay.text = "Your Sequence:\n";
+        sequenceDisplay.text = "Your Sequence: \n";
         for (int i = 0; i < customSequence.Count; i++)
         {
             sequenceDisplay.text += $"{i + 1}. {customSequence[i]}\n";
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Obstacle"))
+        {
+            hasCollided = true;
         }
     }
 
@@ -89,13 +98,13 @@ public class PlayerSequenceBuilder : MonoBehaviour
     {
         if(maxSteps != customSequence.Count)
         {
-            messageDisplay.text = maxSteps.ToString() + "⚠️ Complete all steps firts";
+            messageDisplay.text = maxSteps.ToString() + " steps required";
             return;
         }
 
         if (customSequence.Count == 0)
         {
-            messageDisplay.text = "⚠️ Add steps first!";
+            messageDisplay.text = "Add steps first!";
             return;
         }
 
@@ -109,12 +118,23 @@ public class PlayerSequenceBuilder : MonoBehaviour
     IEnumerator PlayAndCheck()
     {
         messageDisplay.text = "🔄 Playing sequence...";
+        hasCollided = false;
+
         yield return new WaitForSeconds(0.5f);
 
         foreach (Direction step in customSequence)
         {
             yield return MoveInDirection(step);
             yield return new WaitForSeconds(delayBetweenSteps);
+
+            if (hasCollided)
+            {
+                messageDisplay.text = "💥 Hit an enemy! ❌ Try Again!";
+                yield return new WaitForSeconds(1f);
+                transform.position = initialPosition;
+                ClearSequence();
+                yield break;
+            }
         }
 
         yield return new WaitForSeconds(0.5f);

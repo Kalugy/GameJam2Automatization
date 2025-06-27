@@ -15,6 +15,7 @@ TagManager:
   - Leftbtn
   - Rightbtn
   - FuelSlider
+  - Obstacle
   layers:
   - Default
   - TransparentFX
