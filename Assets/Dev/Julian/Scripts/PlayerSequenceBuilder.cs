@@ -96,11 +96,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
     void PlayCustomSequence()
     {
-        if(maxSteps != customSequence.Count)
-        {
-            messageDisplay.text = maxSteps.ToString() + " steps required";
-            return;
-        }
+        
 
         if (customSequence.Count == 0)
         {
@@ -129,7 +125,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
             if (hasCollided)
             {
-                messageDisplay.text = "💥 Hit an enemy! ❌ Try Again!";
+                messageDisplay.text = "Hit an obstacle! Try Again!";
                 yield return new WaitForSeconds(1f);
                 transform.position = initialPosition;
                 ClearSequence();
