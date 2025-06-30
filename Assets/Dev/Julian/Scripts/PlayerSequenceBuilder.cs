@@ -50,7 +50,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
     {
         if (customSequence.Count >= maxSteps)
         {
-            messageDisplay.text = "❌ Max steps reached!";
+            messageDisplay.text = "❌ ¡Máximo de pasos alcanzado!";
             return;
         }
 
@@ -62,7 +62,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
     void UpdateSequenceDisplay()
     {
-        sequenceDisplay.text = "Your Sequence: \n";
+        sequenceDisplay.text = "Su secuencia: \n";
         for (int i = 0; i < customSequence.Count; i++)
         {
             sequenceDisplay.text += $"{i + 1}. {customSequence[i]}\n";
@@ -100,7 +100,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
         if (customSequence.Count == 0)
         {
-            messageDisplay.text = "Add steps first!";
+            messageDisplay.text = "¡Añade pasos primero!";
             return;
         }
 
@@ -113,7 +113,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
     IEnumerator PlayAndCheck()
     {
-        messageDisplay.text = "🔄 Playing sequence...";
+        messageDisplay.text = "🔄 Secuencia de reproducción...";
         hasCollided = false;
 
         yield return new WaitForSeconds(0.5f);
@@ -125,7 +125,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
             if (hasCollided)
             {
-                messageDisplay.text = "Hit an obstacle! Try Again!";
+                messageDisplay.text = "¡Choca con un obstáculo! \n¡Inténtalo de nuevo!";
                 yield return new WaitForSeconds(1f);
                 transform.position = initialPosition;
                 ClearSequence();
@@ -137,11 +137,11 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
         if (IsSequenceCorrect())
         {
-            messageDisplay.text = "🏁 You Win!";
+            messageDisplay.text = "🏁 ¡Ganaste!";
         }
         else
         {
-            messageDisplay.text = "❌ Try Again!";
+            messageDisplay.text = "❌ ¡Inténtalo de nuevo!";
             yield return new WaitForSeconds(1f);
             transform.position = initialPosition;
             ClearSequence();
