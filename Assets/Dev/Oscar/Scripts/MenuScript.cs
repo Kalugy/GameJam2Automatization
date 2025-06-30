@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class MenuScript : MonoBehaviour
 
     public void IniciarJuego()
     {
-        // SceneManager.LoadScene("NombreDeTuEscenaDeJuego");
+        SceneManager.LoadScene("Environment1");
     }
 
     public void Como()
