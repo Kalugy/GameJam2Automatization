@@ -8,6 +8,10 @@ public class PlayerSequenceBuilder : MonoBehaviour
 {
     public enum Direction { Front, Back, Left, Right }
     private bool hasCollided = false;
+    [SerializeField]
+    GameObject playerVehicle;
+    [SerializeField]
+    ParticleSystem destroyedFX;
 
     [Header("Movement Settings")]
     public float moveDistance = 1f;
@@ -50,7 +54,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
     {
         if (customSequence.Count >= maxSteps)
         {
-            messageDisplay.text = "❌ Max steps reached!";
+            messageDisplay.text = "Max steps reached!";
             return;
         }
 
@@ -113,7 +117,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
     IEnumerator PlayAndCheck()
     {
-        messageDisplay.text = "🔄 Playing sequence...";
+        messageDisplay.text = "Playing sequence...";
         hasCollided = false;
 
         yield return new WaitForSeconds(0.5f);
@@ -125,8 +129,12 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
             if (hasCollided)
             {
+                playerVehicle.SetActive(false);
+                destroyedFX.Play();
                 messageDisplay.text = "Hit an obstacle! Try Again!";
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(1.5f);
+                playerVehicle.SetActive(false);
+                destroyedFX.Stop();
                 transform.position = initialPosition;
                 ClearSequence();
                 yield break;
@@ -137,11 +145,11 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
         if (IsSequenceCorrect())
         {
-            messageDisplay.text = "🏁 You Win!";
+            messageDisplay.text = "You Win!";
         }
         else
         {
-            messageDisplay.text = "❌ Try Again!";
+            messageDisplay.text = "Try Again!";
             yield return new WaitForSeconds(1f);
             transform.position = initialPosition;
             ClearSequence();
@@ -150,14 +158,14 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
     bool IsSequenceCorrect()
     {
-        if (customSequence.Count != correctSequence.Count)
-            return false;
+        //if (customSequence.Count != correctSequence.Count)
+        //    return false;
 
-        for (int i = 0; i < correctSequence.Count; i++)
-        {
-            if (customSequence[i] != correctSequence[i])
-                return false;
-        }
+        //for (int i = 0; i < correctSequence.Count; i++)
+        //{
+        //    if (customSequence[i] != correctSequence[i])
+        //        return false;
+        //}
 
         return true;
     }
