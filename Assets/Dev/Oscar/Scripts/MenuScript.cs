@@ -28,7 +28,7 @@ public class MenuScript : MonoBehaviour
 
     public void IniciarJuego()
     {
-        SceneManager.LoadScene("Environment1");
+        SceneManager.LoadScene(1);
     }
 
     public void Como()

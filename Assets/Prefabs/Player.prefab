@@ -17067,10 +17067,10 @@ MonoBehaviour:
   playerVehicle: {fileID: 6546341885884273139}
   destroyedFX: {fileID: 5148840342196505898}
   moveDistance: 8
-  moveSpeed: 7
+  moveSpeed: 20
   delayBetweenSteps: 0.3
   maxSteps: 10
-  correctSequence: 02000000030000000000000000000000
+  correctSequence: 020000000300000000000000000000000000000000000000000000000000000000000000
   sequenceDisplay: {fileID: 8511427345842552172}
   messageDisplay: {fileID: 6525428866402681137}
   startButton: {fileID: 5330602346214939264}

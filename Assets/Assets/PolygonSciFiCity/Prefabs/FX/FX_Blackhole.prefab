@@ -9624,8 +9624,8 @@ GameObject:
   - component: {fileID: 4889155434602950}
   - component: {fileID: 198357083801700994}
   - component: {fileID: 199521402786981636}
-  - component: {fileID: 665718800070321935}
-  - component: {fileID: 1072913676967627830}
+  - component: {fileID: 3312184272877865038}
+  - component: {fileID: 5506388109871453444}
   m_Layer: 0
   m_Name: FX_Blackhole
   m_TagString: Untagged
@@ -14322,8 +14322,8 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!65 &665718800070321935
-BoxCollider:
+--- !u!135 &3312184272877865038
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14341,9 +14341,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.42600006, y: 0.42600006, z: 0.42600006}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1072913676967627830
+  m_Radius: 0.2233547
+  m_Center: {x: 0, y: 0, z: -0.010354725}
+--- !u!114 &5506388109871453444
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
