@@ -10148,7 +10148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4364708384590776, guid: c42c0464c105a3943a67aa5b00435c89, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.153632
+      value: 2.1372643
       objectReference: {fileID: 0}
     - target: {fileID: 4364708384590776, guid: c42c0464c105a3943a67aa5b00435c89, type: 3}
       propertyPath: m_LocalScale.y
@@ -10156,11 +10156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4364708384590776, guid: c42c0464c105a3943a67aa5b00435c89, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.153632
+      value: 1.8814129
       objectReference: {fileID: 0}
     - target: {fileID: 4364708384590776, guid: c42c0464c105a3943a67aa5b00435c89, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0302
       objectReference: {fileID: 0}
     - target: {fileID: 4364708384590776, guid: c42c0464c105a3943a67aa5b00435c89, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10168,7 +10168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4364708384590776, guid: c42c0464c105a3943a67aa5b00435c89, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23
+      value: 22.4726
       objectReference: {fileID: 0}
     - target: {fileID: 4364708384590776, guid: c42c0464c105a3943a67aa5b00435c89, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13185,6 +13185,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 613795831520002787, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_text
+      value: Seleccionar pasos
+      objectReference: {fileID: 0}
     - target: {fileID: 3107588747112719323, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -13225,9 +13229,63 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3477418843458840114, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_text
+      value: Iniciar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3477418843458840114, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_margin.z
+      value: 87.428345
+      objectReference: {fileID: 0}
     - target: {fileID: 4048355559216490501, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766486350673233733, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_text
+      value: Borrar pasos
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584231396367624761, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 394.1894
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584231396367624761, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 140.5171
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584231396367624761, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -4.6365
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584231396367624761, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 158.7067
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525428866402681137, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_fontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525428866402681137, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525428866402681137, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 6525428866402681137, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719298400149943610, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_text
+      value: 'Nivel 3
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166620318172677039, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
+      propertyPath: m_text
+      value: Adivina los pasos
       objectReference: {fileID: 0}
     - target: {fileID: 7918004757506546994, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
       propertyPath: m_Size.z

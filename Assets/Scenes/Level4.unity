@@ -17191,7 +17191,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6719298400149943610, guid: 3bf37daa161797d46ae1a47e38868cab, type: 3}
       propertyPath: m_text
-      value: 'Nivel 1
+      value: 'Nivel 4
 
 '
       objectReference: {fileID: 0}
