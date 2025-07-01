@@ -4,7 +4,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 
-public class PlayerSequenceBuilder : MonoBehaviour
+public class PlayerSequenceBuilder : MonoBehaviour, IPickUpInteractions
 {
     public enum Direction { Front, Back, Left, Right }
     private bool hasCollided = false;
@@ -12,6 +12,7 @@ public class PlayerSequenceBuilder : MonoBehaviour
     GameObject playerVehicle;
     [SerializeField]
     ParticleSystem destroyedFX;
+    bool isTeleporting = false;
 
     [Header("Movement Settings")]
     public float moveDistance = 1f;
@@ -78,6 +79,8 @@ public class PlayerSequenceBuilder : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             hasCollided = true;
+            playerVehicle.SetActive(false);
+            destroyedFX.Play();
         }
     }
 
@@ -124,16 +127,20 @@ public class PlayerSequenceBuilder : MonoBehaviour
 
         foreach (Direction step in customSequence)
         {
+            if (isTeleporting)
+            {
+                yield return new WaitForSeconds(0.1f);
+                isTeleporting = false;
+            }
+                Debug.Log(step);
             yield return MoveInDirection(step);
             yield return new WaitForSeconds(delayBetweenSteps);
 
             if (hasCollided)
             {
-                playerVehicle.SetActive(false);
-                destroyedFX.Play();
                 messageDisplay.text = "Hit an obstacle! Try Again!";
                 yield return new WaitForSeconds(1.5f);
-                playerVehicle.SetActive(false);
+                playerVehicle.SetActive(true);
                 destroyedFX.Stop();
                 transform.position = initialPosition;
                 ClearSequence();
@@ -187,9 +194,18 @@ public class PlayerSequenceBuilder : MonoBehaviour
         while (Vector3.Distance(transform.position, target) > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, target, moveSpeed * Time.deltaTime);
+            if (isTeleporting)
+            {
+                yield break;
+            }
             yield return null;
         }
 
         transform.position = target;
+    }
+
+    void IPickUpInteractions.OnObjectPicked()
+    {
+        isTeleporting = true;
     }
 }

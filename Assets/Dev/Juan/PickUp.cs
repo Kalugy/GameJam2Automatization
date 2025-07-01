@@ -13,7 +13,11 @@ public class PickUp : MonoBehaviour
         IPickUpInteractions pickUp = other.GetComponent<IPickUpInteractions>();
         if (pickUp != null)
         {
-            Debug.Log("Cummmmmmer");
+            //Invoke("ActivatePickUp", 0.1f);
+            pickUp.OnObjectPicked();
+            ActivatePickUp(other.gameObject);
         }
     }
+
+    public virtual void ActivatePickUp(GameObject objectToTeleport) { }
 }

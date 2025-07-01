@@ -6,17 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelChange : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField]
+    bool isLastScene;
 
     void OnTriggerEnter(Collider other)
     {
@@ -35,6 +26,13 @@ public class LevelChange : MonoBehaviour
             transform.localScale += transform.localScale * 5 * Time.deltaTime;
             yield return new WaitForSeconds(0.01f);
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (isLastScene)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
